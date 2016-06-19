@@ -9,6 +9,7 @@ class User
   validates_confirmation_of :password
 
   has n, :peeps
+  has n, :comments
 
   property :id, Serial
   property :username, String, required: true, unique: true

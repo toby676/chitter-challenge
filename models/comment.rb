@@ -1,12 +1,10 @@
-class Peep
+class Comment
   include DataMapper::Resource
-
-  has n, :comments
 
   property :id, Serial
   property :content, String, required: true
   property :created_at, DateTime
 
   belongs_to :user
-
+  belongs_to :peep
 end
