@@ -6,13 +6,18 @@
   <% peeps.reverse.each do |peep| %>
     <li>
       <%= peep.content %>
-      @peep = peep
+
     <p class='createdby'><i>Created: <%= peep.created_at.strftime("%A, %b %d %r") %> by <b> <%= User.get(peep.user_id).username %> </b> </i></p>
       <form action='/comments' method='post'>
       <input name='content' type='text'>
-      <input name='peep' value=@peep
+      <input name='peep' value="<% peep %>" type='hidden'>
       <input type='submit' value='Comment'>
     </form>
+    <ul id='peeps'>
+      <% peeps.comments.reverse.each do |comment| %>
+      <li> <%= comments.content %>
+      </li>
+      <% end %>
     </li>
   <% end %>
 </ul>
